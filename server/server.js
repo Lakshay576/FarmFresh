@@ -17,7 +17,11 @@ const app = express();
 
 
 app.use(cors({
-  origin: "*", // your frontend origin
+  origin: [
+    "http://localhost:5173", // local dev
+    "https://farm-fresh-peach.vercel.app", // main production
+    "https://farm-fresh-j0swpxl14-lakshay576s-projects.vercel.app" // preview/deployment
+  ],
   credentials: true,
 }));
 
