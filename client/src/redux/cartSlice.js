@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+import { API_URL } from "../api";
 
 const initialState = {
   cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
@@ -34,7 +35,7 @@ export const placeOrder = createAsyncThunk(
         );
 
         const response = await fetch(
-          "https://farmfresh-7cip.onrender.com/api/auth/orders",
+          `${API_URL}/api/auth/orders`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

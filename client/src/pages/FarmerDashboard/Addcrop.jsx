@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import imageCompression from 'browser-image-compression';
 import { toast } from 'react-toastify';
-
+import { API_URL } from "../../api";
 
 
 
@@ -100,7 +100,7 @@ const AddCropForm = ({ onFormSubmit, onCancel }) => {
         }
 
         try {
-            const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/add-crop', {
+            const response = await fetch(`${API_URL}/api/auth/add-crop`, {
                 method: 'Post',
                 headers: {
                     'Content-Type': 'application/json',

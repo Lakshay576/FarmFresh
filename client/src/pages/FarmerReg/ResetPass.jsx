@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from "../../api";
 
 // --- SVG Icon Components ---
 const MailIcon = () => (
@@ -34,7 +35,7 @@ const ForgotPasswordFlow = () => {
     setError('');
     setLoading(true);
     try {
-      const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/sendverifycode', {
+      const response = await fetch(`${API_URL}/api/auth/sendverifycode`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
@@ -61,7 +62,7 @@ const ForgotPasswordFlow = () => {
     setError('');
     setLoading(true);
     try {
-      const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/verify-otp', {
+      const response = await fetch(`${API_URL}/api/auth/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),
@@ -112,7 +113,7 @@ const ForgotPasswordFlow = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/resetpassword', {
+      const response = await fetch(`${API_URL}/api/auth/resetpassword`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password: newPassword }),

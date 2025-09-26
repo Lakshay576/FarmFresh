@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_URL } from "../../api";
 
 // --- SVG Icon Components ---
 const MailIcon = () => (
@@ -40,7 +41,7 @@ const FarmerDetailCard = ({ farmer, onClose }) => {
 
                 {/* Profile Image */}
                 <img 
-                    src={`https://farmfresh-7cip.onrender.com${farmer.farmerId?.profile}`} 
+                    src={`${API_URL}${farmer.farmerId?.profile}`} 
                     alt={farmer.farmerId?.name} 
                     className="w-28 h-28 rounded-full mx-auto mb-4 border-4 border-green-200 shadow-md"
                 />

@@ -1,6 +1,5 @@
-// redux/cropSlice.js
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { API_URL } from "../api";
 
 const initialState = {
   loading: false,
@@ -14,7 +13,7 @@ export const viewAllCrops = createAsyncThunk('crop/viewAllCrop',
   async (_, thunkAPI) =>{
     try{
     console.log("Thunk fetching all crops");
-    const res = await fetch('https://farmfresh-7cip.onrender.com/api/auth/viewAllCrops',{
+    const res = await fetch(`${API_URL}/api/auth/viewAllCrops`,{
       method: "GET",
       credentials: "include",
     });
@@ -35,7 +34,7 @@ export const fetchCrop = createAsyncThunk(
   'crop/fetchCropDetail',
   async (cropId, thunkAPI) => {
     console.log("Thunk fetchCrop called with ID:", cropId);
-    const res = await fetch(`https://farmfresh-7cip.onrender.com/api/auth/view-crop/${cropId}`, {
+    const res = await fetch(`${API_URL}/api/auth/view-crop/${cropId}`, {
       method: "GET",
       credentials: "include",
     });
@@ -53,7 +52,7 @@ export const updateCrop = createAsyncThunk(
   'crop/updateCropDetail',
   async ({ cropId, updatedData }, thunkAPI) => {
     console.log("Thunk updateCrop called with:", cropId, updatedData);
-    const res = await fetch(`https://farmfresh-7cip.onrender.com/api/auth/update-crop/${cropId}`, {
+    const res = await fetch(`${API_URL}/api/auth/update-crop/${cropId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

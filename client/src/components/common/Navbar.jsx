@@ -5,6 +5,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserInfo, clearFarmer } from '../../redux/farmerSlice';
 // import { toggleTheme } from '../../redux/themeSlice';
+import { API_URL } from "../../api";
 
 // --- SVG Icon Components ---
 const Bars3Icon = ({ className }) => (
@@ -34,7 +35,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/logout', {
+      const response = await fetch(`${API_URL}/api/auth/logout`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -72,7 +73,7 @@ const Navbar = () => {
                 <div className="flex items-center space-x-4">
                   { user?.role === "farmer" && <NavLink to="/farmerdashboard" className="text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">DashBoard</NavLink>
 }
-                  <img src={`https://farmfresh-7cip.onrender.com${user?.profile}`} alt="user" className='w-10 h-10 border rounded-full' />
+                  <img src={`${API_URL}${user?.profile}`} alt="user" className='w-10 h-10 border rounded-full' />
                   <span>Hi, {user?.name}</span>
                   <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition">
                     Logout
@@ -103,17 +104,21 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#" className="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-            <a href="#" className="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium">About</a>
+            <NavLink to="/" className="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium">Home</NavLink>
+            <NavLink to="/aboutUs" className="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium">About</NavLink>
+            <NavLink to="/buyermarketplace" className="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium">Buyer MarketPlace</NavLink>
 
             {!user ? (
               <Link to="/login" className="bg-green-600 text-white block mt-2 mx-2 px-4 py-2 rounded-lg text-base font-semibold hover:bg-green-700 transition text-center">
                 Login
               </Link>
             ) : (
+              <div> 
+              { user?.role === "farmer" && <NavLink to="/farmerdashboard" className="text-gray-600 hover:text-green-700 block mt-2 mx-2 px-4 py-2 rounded-md text-base font-medium">DashBoard</NavLink>}
               <button onClick={handleLogout} className="bg-red-600 text-white block mt-2 mx-2 px-4 py-2 rounded-lg text-base font-semibold hover:bg-red-700 transition text-center">
                 Logout
               </button>
+              </div>
             )}
           </div>
         </div>

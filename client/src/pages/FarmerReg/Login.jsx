@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setFarmer,fetchUserInfo} from "../../redux/farmerSlice";
+import { API_URL } from "../../api";
 
 const MailIcon = () => (
   <svg
@@ -72,7 +73,7 @@ const LoginPage = () => {
     if (validate()) {
       try {
         const response = await fetch(
-          "https://farmfresh-7cip.onrender.com/api/auth/login-farmer",
+          `${API_URL}/api/auth/login-farmer`,
           {
             method: "POST",
             headers: {

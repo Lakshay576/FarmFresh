@@ -5,6 +5,7 @@ import { fetchCrop } from '../../redux/cropSlice';
 import { toast } from 'react-toastify';
 import { addToCart } from '../../redux/cartSlice';
 import FarmerDetailCard from './ViewFarmerinfo';
+import { API_URL } from "../../api";
 
 
 const CropDetailPage = () => {
@@ -74,7 +75,7 @@ const CropDetailPage = () => {
         {/* Crop Image */}
         <div className="md:w-1/2">
           <img
-            src={`https://farmfresh-7cip.onrender.com${crop.image}`}
+            src={`${API_URL}${crop.image}`}
             alt={crop.cropName}
             className="w-full h-96 object-cover rounded-2xl shadow-md hover:scale-105 transition-transform duration-300"
           />
@@ -101,7 +102,7 @@ const CropDetailPage = () => {
               
                 <div className="flex items-center space-x-2">
                   <img
-                    src={`https://farmfresh-7cip.onrender.com${crop.farmerId?.profile}`}
+                    src={`${API_URL}${crop.farmerId?.profile}`}
                     alt={crop.farmerId?.name}
                     className="w-10 h-10 rounded-full object-cover shadow"
                   />

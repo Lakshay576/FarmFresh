@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCrop, updateCrop, clearSuccess, clearError } from '../../redux/cropSlice';
+import { API_URL } from "../../api";
 
 const UpdateCropForm = ({ cropId, onFormSubmit, onCancel }) => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const UpdateCropForm = ({ cropId, onFormSubmit, onCancel }) => {
         description: crop.description || '',
         category: crop.category || '',
       });
-      setImagePreview(crop.image ? (crop.image.startsWith('http') ? crop.image : `https://farmfresh-7cip.onrender.com${crop.image}`) : '');
+      setImagePreview(crop.image ? (crop.image.startsWith('http') ? crop.image : `${API_URL}${crop.image}`) : '');
     }
   }, [cropId, crop]);
 

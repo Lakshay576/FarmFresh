@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TrackOrderComponent from "./OrderStatus";
 import { updateStatus } from "../../redux/farmerSlice";
 import { useDispatch } from "react-redux";
+import { API_URL } from "../../api";
 
 // --- SVG Icon Components ---
 const BackIcon = () => (
@@ -59,7 +60,7 @@ const CustomerOrdersList = () => {
     const fetchOrders = async () => {
       try {
         const response = await fetch(
-          "https://farmfresh-7cip.onrender.com/api/auth/getPlaceOrder",
+          `${API_URL}/api/auth/getPlaceOrder`,
           {
             method: "GET",
             credentials: "include",
@@ -106,8 +107,8 @@ const CustomerOrdersList = () => {
 
 
   const getImageUrl = (item) => {
-    if (item.cropId?.image) return `https://farmfresh-7cip.onrender.com${item.cropId.image}`;
-    if (item.image) return `https://farmfresh-7cip.onrender.com${item.image}`;
+    if (item.cropId?.image) return `${API_URL}${item.cropId.image}`;
+    if (item.image) return `${API_URL}${item.image}`;
     return "https://via.placeholder.com/100";
   };
 
@@ -143,7 +144,7 @@ const CustomerOrdersList = () => {
                       {items.slice(0, 3).map((item) => (
                         <img
                           key={item._id || item.id}
-                        //   src={item.cropId?.image || (item.image ? `https://farmfresh-7cip.onrender.com${item.image}` : null) || "https://via.placeholder.com/100"}
+                        //   src={item.cropId?.image || (item.image ? `${API_URL}${item.image}` : null) || "https://via.placeholder.com/100"}
                         src={getImageUrl(item)}
                           alt={item.cropId?.cropName || item.name || "Crop"}
                           className="w-16 h-16 object-cover rounded-full border-2 border-white"

@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, clearCart, updateCartQuantity, placeOrder } from '../../redux/cartSlice';
+import { API_URL } from "../../api";
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -53,7 +54,7 @@ const Cart = () => {
                                 cartItems.map((item) => (
                                     <div key={item.cropId} className="flex items-center space-x-6 border-b pb-4 last:border-none">
                                         <img
-                                            src={`https://farmfresh-7cip.onrender.com${item.image}`}
+                                            src={`${API_URL}${item.image}`}
                                             alt={item.cropName}
                                             className="w-28 h-28 object-cover rounded-lg"
                                         />

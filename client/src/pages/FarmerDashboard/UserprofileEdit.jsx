@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchFarmerProfile, updateFarmerProfile, fetchCropsListing } from '../../redux/farmerSlice';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from "../../api";
 
 // --- SVG Icon Components for better UI ---
 
@@ -65,7 +66,7 @@ const UserProfileEditForm = () => {
         farmName: farmer.farmName,
         farmLocation: farmer.farmLocation,
       });
-      setImagePreview(farmer.profile? (farmer.profile.startsWith('http')? farmer.profile : `https://farmfresh-7cip.onrender.com${farmer.profile}?t=${Date.now()}`) : '');
+      setImagePreview(farmer.profile? (farmer.profile.startsWith('http')? farmer.profile : `${API_URL}${farmer.profile}?t=${Date.now()}`) : '');
     }
   }, [farmer]);
 

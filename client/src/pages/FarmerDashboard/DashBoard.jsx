@@ -6,6 +6,7 @@ import UserProfileEditForm from './UserprofileEdit';
 import OrdersComponent from './OrdersPage';
 import Revenue from './Revenue';
 import SalesChart from './SalesChart'
+import { API_URL } from "../../api";
 
 const Dashboard = ({ user }) => {
     // State to manage which page is currently active
@@ -181,7 +182,7 @@ const Dashboard = ({ user }) => {
                         { crops && crops.length > 0 ? (
                         crops.slice(0,7).map((crop) => (
                             <div key={crop._id} className="flex items-center space-x-4">
-                                <img src={`https://farmfresh-7cip.onrender.com${crop.image}`} alt={crop.cropName} className="w-16 h-16 rounded-md object-cover"/>
+                                <img src={`${API_URL}${crop.image}`} alt={crop.cropName} className="w-16 h-16 rounded-md object-cover"/>
                                 <div>
                                     <p className="font-semibold text-gray-800">{crop.cropName}</p>
                                     <p className="text-sm text-gray-500">Rs. {crop.price} {crop.unit}</p>

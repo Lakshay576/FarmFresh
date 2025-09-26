@@ -2,6 +2,7 @@ import React, { useState , useEffect} from "react";
 import { Link } from "react-router-dom";
 import imageCompression from 'browser-image-compression';
 import RegistrationSuccessPage from "./RegistrationSuccesfull";
+import { API_URL } from "../../api";
 
 // --- SVG Icons ---
 const UserIcon = () => (
@@ -330,7 +331,7 @@ const SignupPage = () => {
 
   const handleSendotp = async () => {
     try {
-      const response = await fetch("https://farmfresh-7cip.onrender.com/api/auth/send-otp", {
+      const response = await fetch(`${API_URL}/api/auth/send-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -353,7 +354,7 @@ const SignupPage = () => {
 
   const resendotp = async () => {
     try {
-      const response = await fetch("https://farmfresh-7cip.onrender.com/api/auth/send-otp", {
+      const response = await fetch(`${API_URL}/api/auth/send-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -375,7 +376,7 @@ const SignupPage = () => {
 
   const verifyOtp = async (otp) => {
     try{
-    const response = await fetch("https://farmfresh-7cip.onrender.com/api/auth/verify-otp", {
+    const response = await fetch(`${API_URL}/api/auth/verify-otp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -422,7 +423,7 @@ const SignupPage = () => {
 
     try{
 
-      const response = await fetch("https://farmfresh-7cip.onrender.com/api/auth/register-farmer", {
+      const response = await fetch(`${API_URL}/api/auth/register-farmer`, {
         method: "POST",
         headers:{
           "Content-Type": "application/json",
