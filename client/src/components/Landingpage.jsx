@@ -1,7 +1,7 @@
 import React from "react";
 import farmImg from '/farm-img.png';
 import Achievements from "./Achivements";
-import Videosection from "./videosection";
+import Videosection from "./Videosection";
 import { useNavigate } from "react-router-dom";
 
 
