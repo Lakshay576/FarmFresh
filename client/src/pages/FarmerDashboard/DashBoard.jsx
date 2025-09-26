@@ -181,7 +181,7 @@ const Dashboard = ({ user }) => {
                         { crops && crops.length > 0 ? (
                         crops.slice(0,7).map((crop) => (
                             <div key={crop._id} className="flex items-center space-x-4">
-                                <img src={`http://localhost:5000${crop.image}`} alt={crop.cropName} className="w-16 h-16 rounded-md object-cover"/>
+                                <img src={`https://farmfresh-7cip.onrender.com${crop.image}`} alt={crop.cropName} className="w-16 h-16 rounded-md object-cover"/>
                                 <div>
                                     <p className="font-semibold text-gray-800">{crop.cropName}</p>
                                     <p className="text-sm text-gray-500">Rs. {crop.price} {crop.unit}</p>

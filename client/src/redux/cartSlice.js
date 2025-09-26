@@ -34,7 +34,7 @@ export const placeOrder = createAsyncThunk(
         );
 
         const response = await fetch(
-          "http://localhost:5000/api/auth/orders",
+          "https://farmfresh-7cip.onrender.com/api/auth/orders",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

@@ -96,10 +96,10 @@ const OrderDetailPage = ({ order, onStatusChange, onClose }) => {
   src={
     // First, try cropId.image if available
     item.cropId?.image
-      ? `http://localhost:5000${item.cropId.image.startsWith('/') ? item.cropId.image : '/' + item.cropId.image}`
+      ? `https://farmfresh-7cip.onrender.com${item.cropId.image.startsWith('/') ? item.cropId.image : '/' + item.cropId.image}`
       // Then try item.image
       : item.image
-      ? `http://localhost:5000${item.image.startsWith('/') ? item.image : '/' + item.image}`
+      ? `https://farmfresh-7cip.onrender.com${item.image.startsWith('/') ? item.image : '/' + item.image}`
       // Fallback to placeholder
       : "https://via.placehold.co/100x100?text=Crop"
   }

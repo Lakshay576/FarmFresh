@@ -59,7 +59,7 @@ const CustomerOrdersList = () => {
     const fetchOrders = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/auth/getPlaceOrder",
+          "https://farmfresh-7cip.onrender.com/api/auth/getPlaceOrder",
           {
             method: "GET",
             credentials: "include",
@@ -106,8 +106,8 @@ const CustomerOrdersList = () => {
 
 
   const getImageUrl = (item) => {
-    if (item.cropId?.image) return `http://localhost:5000${item.cropId.image}`;
-    if (item.image) return `http://localhost:5000${item.image}`;
+    if (item.cropId?.image) return `https://farmfresh-7cip.onrender.com${item.cropId.image}`;
+    if (item.image) return `https://farmfresh-7cip.onrender.com${item.image}`;
     return "https://via.placeholder.com/100";
   };
 
@@ -143,7 +143,7 @@ const CustomerOrdersList = () => {
                       {items.slice(0, 3).map((item) => (
                         <img
                           key={item._id || item.id}
-                        //   src={item.cropId?.image || (item.image ? `http://localhost:5000${item.image}` : null) || "https://via.placeholder.com/100"}
+                        //   src={item.cropId?.image || (item.image ? `https://farmfresh-7cip.onrender.com${item.image}` : null) || "https://via.placeholder.com/100"}
                         src={getImageUrl(item)}
                           alt={item.cropId?.cropName || item.name || "Crop"}
                           className="w-16 h-16 object-cover rounded-full border-2 border-white"

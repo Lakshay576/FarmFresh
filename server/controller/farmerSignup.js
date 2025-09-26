@@ -164,7 +164,7 @@ const sendVerificationEmailRest = async (req, res) => {
     await storeOtp(email, otp); // assuming this is async
     await sendotp(email, otp);
 
-    res.status(200).json({ message: "OTP sent to email", otp });
+    res.status(200).json({ message: "OTP sent to email", });
   } catch (error) {
     console.error("Error sending OTP:", error);
     res.status(500).json({ message: "Error sending OTP email" });

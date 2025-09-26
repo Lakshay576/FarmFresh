@@ -34,7 +34,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/logout', {
+      const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/logout', {
         method: 'POST',
         credentials: 'include',
       });
@@ -72,7 +72,7 @@ const Navbar = () => {
                 <div className="flex items-center space-x-4">
                   { user?.role === "farmer" && <NavLink to="/farmerdashboard" className="text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">DashBoard</NavLink>
 }
-                  <img src={`http://localhost:5000${user?.profile}`} alt="user" className='w-10 h-10 border rounded-full' />
+                  <img src={`https://farmfresh-7cip.onrender.com${user?.profile}`} alt="user" className='w-10 h-10 border rounded-full' />
                   <span>Hi, {user?.name}</span>
                   <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition">
                     Logout

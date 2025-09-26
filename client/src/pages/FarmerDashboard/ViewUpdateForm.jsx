@@ -43,7 +43,7 @@ const UpdateCropForm = ({ cropId, onFormSubmit, onCancel }) => {
         description: crop.description || '',
         category: crop.category || '',
       });
-      setImagePreview(crop.image ? (crop.image.startsWith('http') ? crop.image : `http://localhost:5000${crop.image}`) : '');
+      setImagePreview(crop.image ? (crop.image.startsWith('http') ? crop.image : `https://farmfresh-7cip.onrender.com${crop.image}`) : '');
     }
   }, [cropId, crop]);
 

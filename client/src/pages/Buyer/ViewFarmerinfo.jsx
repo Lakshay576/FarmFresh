@@ -40,7 +40,7 @@ const FarmerDetailCard = ({ farmer, onClose }) => {
 
                 {/* Profile Image */}
                 <img 
-                    src={`http://localhost:5000${farmer.farmerId?.profile}`} 
+                    src={`https://farmfresh-7cip.onrender.com${farmer.farmerId?.profile}`} 
                     alt={farmer.farmerId?.name} 
                     className="w-28 h-28 rounded-full mx-auto mb-4 border-4 border-green-200 shadow-md"
                 />

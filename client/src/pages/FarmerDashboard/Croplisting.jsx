@@ -19,7 +19,7 @@ const CropManagerPage = () => {
 
     const handleDelete = async (cropId) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/auth/remove-crop/${cropId}`, {
+            const response = await fetch(`https://farmfresh-7cip.onrender.com/api/auth/remove-crop/${cropId}`, {
                 method: 'DELETE',
                 credentials: 'include',
             });
@@ -58,7 +58,7 @@ const CropManagerPage = () => {
 
     const CropCard = ({ crop }) => (
         <div className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-6">
-            <img src={`http://localhost:5000${crop.image}`} alt={crop.cropName} className="w-24 h-24 object-cover rounded-md" />
+            <img src={`https://farmfresh-7cip.onrender.com${crop.image}`} alt={crop.cropName} className="w-24 h-24 object-cover rounded-md" />
             <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
                 <div>
                     <p className="text-sm text-gray-500">Crop Name</p>

@@ -34,7 +34,7 @@ const ForgotPasswordFlow = () => {
     setError('');
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/auth/sendverifycode', {
+      const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/sendverifycode', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
@@ -61,7 +61,7 @@ const ForgotPasswordFlow = () => {
     setError('');
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
+      const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),
@@ -112,7 +112,7 @@ const ForgotPasswordFlow = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/auth/resetpassword', {
+      const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/resetpassword', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password: newPassword }),

@@ -330,7 +330,7 @@ const SignupPage = () => {
 
   const handleSendotp = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/send-otp", {
+      const response = await fetch("https://farmfresh-7cip.onrender.com/api/auth/send-otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -353,7 +353,7 @@ const SignupPage = () => {
 
   const resendotp = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/send-otp", {
+      const response = await fetch("https://farmfresh-7cip.onrender.com/api/auth/send-otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -375,7 +375,7 @@ const SignupPage = () => {
 
   const verifyOtp = async (otp) => {
     try{
-    const response = await fetch("http://localhost:5000/api/auth/verify-otp", {
+    const response = await fetch("https://farmfresh-7cip.onrender.com/api/auth/verify-otp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -422,7 +422,7 @@ const SignupPage = () => {
 
     try{
 
-      const response = await fetch("http://localhost:5000/api/auth/register-farmer", {
+      const response = await fetch("https://farmfresh-7cip.onrender.com/api/auth/register-farmer", {
         method: "POST",
         headers:{
           "Content-Type": "application/json",

@@ -100,7 +100,7 @@ const AddCropForm = ({ onFormSubmit, onCancel }) => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/add-crop', {
+            const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/add-crop', {
                 method: 'Post',
                 headers: {
                     'Content-Type': 'application/json',

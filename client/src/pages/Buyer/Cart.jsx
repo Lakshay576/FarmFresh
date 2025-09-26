@@ -53,7 +53,7 @@ const Cart = () => {
                                 cartItems.map((item) => (
                                     <div key={item.cropId} className="flex items-center space-x-6 border-b pb-4 last:border-none">
                                         <img
-                                            src={`http://localhost:5000${item.image}`}
+                                            src={`https://farmfresh-7cip.onrender.com${item.image}`}
                                             alt={item.cropName}
                                             className="w-28 h-28 object-cover rounded-lg"
                                         />

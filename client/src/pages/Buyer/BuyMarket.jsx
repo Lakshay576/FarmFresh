@@ -102,7 +102,7 @@ const MarketplacePage = () => {
                                 >
                                     <div className="relative">
                                         <img
-                                            src={`http://localhost:5000${crop.image}`}
+                                            src={`https://farmfresh-7cip.onrender.com${crop.image}`}
                                             alt={crop.cropName}
                                             className="h-48 w-full object-cover"
                                         />

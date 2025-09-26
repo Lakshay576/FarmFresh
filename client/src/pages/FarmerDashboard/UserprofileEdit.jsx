@@ -65,7 +65,7 @@ const UserProfileEditForm = () => {
         farmName: farmer.farmName,
         farmLocation: farmer.farmLocation,
       });
-      setImagePreview(farmer.profile? (farmer.profile.startsWith('http')? farmer.profile : `http://localhost:5000${farmer.profile}?t=${Date.now()}`) : '');
+      setImagePreview(farmer.profile? (farmer.profile.startsWith('http')? farmer.profile : `https://farmfresh-7cip.onrender.com${farmer.profile}?t=${Date.now()}`) : '');
     }
   }, [farmer]);
 

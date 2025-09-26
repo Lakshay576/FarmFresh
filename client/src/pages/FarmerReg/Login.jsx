@@ -72,7 +72,7 @@ const LoginPage = () => {
     if (validate()) {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/auth/login-farmer",
+          "https://farmfresh-7cip.onrender.com/api/auth/login-farmer",
           {
             method: "POST",
             headers: {

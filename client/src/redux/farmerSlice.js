@@ -28,7 +28,7 @@ export const fetchCropsListing = createAsyncThunk(
   'farmer/fetchCrops',
   async (farmerId, thunkAPI) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/auth/show-crops/farmer/${farmerId}`, {
+      const response = await fetch(`https://farmfresh-7cip.onrender.com/api/auth/show-crops/farmer/${farmerId}`, {
         credentials: 'include', // ✅ Important for session
       });
       if (!response.ok) throw new Error('Failed to fetch crops');
@@ -50,7 +50,7 @@ export const fetchUserInfo = createAsyncThunk(
   'farmer/fetchUserInfo',
   async (_, thunkAPI) => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/userinfo', {
+      const response = await fetch('https://farmfresh-7cip.onrender.com/api/auth/userinfo', {
         method: 'GET',
         credentials: 'include',
       });
@@ -68,7 +68,7 @@ export const fetchFarmerProfile = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/getFamerProfile",
+        "https://farmfresh-7cip.onrender.com/api/auth/getFamerProfile",
         {
           method: "GET",
           credentials: "include", // important to send session cookie
@@ -112,7 +112,7 @@ export const updateFarmerProfile = createAsyncThunk(
       }
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/updateFarmerProfile",
+        "https://farmfresh-7cip.onrender.com/api/auth/updateFarmerProfile",
         {
           method: "PUT",
           credentials: "include", // keep session cookies
@@ -141,7 +141,7 @@ export const updateFarmerProfile = createAsyncThunk(
 export const fetchorder = createAsyncThunk("farmer/fetchorder",
   async (_, {rejectWithValue})=>{
     try{
-      const response = await fetch("http://localhost:5000/api/auth/farmerorders",{
+      const response = await fetch("https://farmfresh-7cip.onrender.com/api/auth/farmerorders",{
         method: "GET",
         credentials:"include",
         headers:{
@@ -165,7 +165,7 @@ export const updateStatus = createAsyncThunk(
   async ({ orderId, status }, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/auth/update-order-status/${orderId}`,
+        `https://farmfresh-7cip.onrender.com/api/auth/update-order-status/${orderId}`,
         {
           method: "PUT",
           credentials: "include",
@@ -192,7 +192,7 @@ export const updateStatus = createAsyncThunk(
 export const getcompletedOrders = createAsyncThunk('farmer/getCompletedOrders',
   async(_, {rejectWithValue}) => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/getCompletedOrders",{
+      const res = await fetch("https://farmfresh-7cip.onrender.com/api/auth/getCompletedOrders",{
         method:"GET",
         credentials:"include",
         headers:{
