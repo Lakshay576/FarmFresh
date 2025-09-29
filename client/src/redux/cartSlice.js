@@ -19,9 +19,14 @@ export const placeOrder = createAsyncThunk(
       }
 
       const grouped = cartItems.reduce((acc, item) => {
-        if (!item.farmerId) throw new Error("Farmer ID missing for some items"); // ✅ FIX
-        if (!acc[item.farmerId]) acc[item.farmerId] = [];
-        acc[item.farmerId].push(item);
+        const farmerId = typeof item.farmerId === "object" ? item.farmerId._id : item.farmerId;
+        if(!farmerId){
+          throw new Error("FarmerId is missing for some items");
+        }
+
+        if(!acc[farmerId]) acc[farmerId] = [];
+      
+        acc[farmerId].push(item);
         return acc;
       }, {});
 
