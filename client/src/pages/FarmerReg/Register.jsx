@@ -336,6 +336,7 @@ const SignupPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({ email: formData.email }),
       });
 
@@ -359,6 +360,7 @@ const SignupPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({ email: formData.email }),
       });
 
@@ -381,6 +383,7 @@ const SignupPage = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({ email: formData.email, otp }),
     });
 
@@ -428,6 +431,7 @@ const SignupPage = () => {
         headers:{
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(dataToSend)
       })
 

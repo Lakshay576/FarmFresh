@@ -38,6 +38,7 @@ const ForgotPasswordFlow = () => {
       const response = await fetch(`${API_URL}/api/auth/sendverifycode`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials:"include",
         body: JSON.stringify({ email }),
       });
       const data = await response.json();
@@ -65,6 +66,7 @@ const ForgotPasswordFlow = () => {
       const response = await fetch(`${API_URL}/api/auth/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials:"include",
         body: JSON.stringify({ email, otp }),
       });
       const data = await response.json();
@@ -116,6 +118,7 @@ const ForgotPasswordFlow = () => {
       const response = await fetch(`${API_URL}/api/auth/resetpassword`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
+        credentials: "include",
         body: JSON.stringify({ email, password: newPassword }),
       });
       const data = await response.json();
